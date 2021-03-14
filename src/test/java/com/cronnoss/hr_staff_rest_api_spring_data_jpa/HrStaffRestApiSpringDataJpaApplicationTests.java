@@ -1,0 +1,13 @@
+package com.cronnoss.hr_staff_rest_api_spring_data_jpa;
+
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+
+@SpringBootTest
+class HrStaffRestApiSpringDataJpaApplicationTests {
+
+    @Test
+    void contextLoads() {
+    }
+
+}
