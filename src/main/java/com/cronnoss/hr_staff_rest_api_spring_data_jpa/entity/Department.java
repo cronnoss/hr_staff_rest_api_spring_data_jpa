@@ -1,6 +1,8 @@
 package com.cronnoss.hr_staff_rest_api_spring_data_jpa.entity;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "department")
@@ -14,11 +16,11 @@ public class Department {
     @Column(name = "department_name")
     private String departmentName;
 
-/*    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "department")
+    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "department")
 //            (fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
 //            , CascadeType.REFRESH, CascadeType.DETACH}
 //            , mappedBy = "department")
-    private List<Position> poss;*/
+    private List<Position> poss;
 
     public Department() {
     }
@@ -27,13 +29,13 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-/*    public void addPositionToDepartment(Position position) {
+    public void addPositionToDepartment(Position position) {
         if (poss == null) {
             poss = new ArrayList<>();
         }
         poss.add(position);
         position.setDepartment(this);
-    }*/
+    }
 
     public int getDepid() {
         return depid;
@@ -51,13 +53,13 @@ public class Department {
         this.departmentName = departmentName;
     }
 
-/*    public List<Position> getPoss() {
+    public List<Position> getPoss() {
         return poss;
     }
 
     public void setPoss(List<Position> poss) {
         this.poss = poss;
-    }*/
+    }
 
     @Override
     public String toString() {
