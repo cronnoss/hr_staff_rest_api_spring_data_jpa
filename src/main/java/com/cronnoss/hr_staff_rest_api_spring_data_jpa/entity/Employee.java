@@ -25,8 +25,9 @@ public class Employee {
     @Column(name = "salary")
     private int salary;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
-            , CascadeType.REFRESH, CascadeType.DETACH})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+//            (fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
+//            , CascadeType.REFRESH, CascadeType.DETACH})
     @JoinTable(
             name = "positions_employees"
             , joinColumns = @JoinColumn(name = "empid")
@@ -65,6 +66,14 @@ public class Employee {
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
+//
+//    public Timestamp getDateOfBirth() {
+//        return dateOfBirth;
+//    }
+//
+//    public void setDateOfBirth(Timestamp dateOfBirth) {
+//        this.dateOfBirth = dateOfBirth;
+//    }
 
     public int getSalary() {
         return salary;
