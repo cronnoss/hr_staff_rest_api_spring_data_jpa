@@ -11,7 +11,8 @@ import java.util.List;
 public class Position {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "position_posid_seq")
+    @SequenceGenerator(name = "position_posid_seq",  allocationSize = 10)
     @Column(name = "posid")
     private int posid;
 
@@ -19,7 +20,7 @@ public class Position {
 //            (fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
 //            , CascadeType.REFRESH, CascadeType.DETACH})
     @JoinColumn(name = "depid")
-    @JsonIgnore
+//    @JsonIgnore
     private Department department;
 
     @Column(name = "position_name")
@@ -31,6 +32,7 @@ public class Position {
             name = "positions_employees"
             , joinColumns = @JoinColumn(name = "posid")
             , inverseJoinColumns = @JoinColumn(name = "empid"))
+    @JsonIgnore
     private List<Employee> employees;
 
     public Position() {

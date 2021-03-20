@@ -12,7 +12,8 @@ import java.util.List;
 public class Employee {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_empid_seq")
+    @SequenceGenerator(name = "employee_empid_seq",  allocationSize = 10)
     @Column(name = "empid")
     private int empid;
 
@@ -32,7 +33,7 @@ public class Employee {
             name = "positions_employees"
             , joinColumns = @JoinColumn(name = "empid")
             , inverseJoinColumns = @JoinColumn(name = "posid"))
-    @JsonIgnore
+//    @JsonIgnore
     private List<Position> positions;
 
     public Employee() {

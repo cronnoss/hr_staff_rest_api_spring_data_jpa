@@ -1,32 +1,16 @@
--- INSERT INTO department (department_name)
--- VALUES ('IT'),
---        ('Sales'),
---        ('HR');
-
 INSERT INTO department (depid, department_name)
-    OVERRIDING SYSTEM VALUE
 VALUES ('1', 'IT'),
        ('2', 'Sales'),
        ('3', 'HR');
 
 INSERT INTO position (posid, depid, position_name)
-    OVERRIDING SYSTEM VALUE
 VALUES ('1', '1', 'developer'),
        ('2', '1', 'designer'),
        ('3', '2', 'manager'),
        ('4', '2', 'salesman'),
        ('5', '3', 'recruiter');
 
-
--- INSERT INTO position (posid, depid, position_name)
--- VALUES ('1', '1', 'developer'),
---        ('2', '1', 'designer'),
---        ('3', '2', 'manager'),
---        ('4', '2', 'salesman'),
---        ('5', '3', 'recruiter');
-
 INSERT INTO employee (empid, full_name, date_of_birth, salary)
-    OVERRIDING SYSTEM VALUE
 VALUES ('1', 'Egor', '2001-09-29 00:00:00', '700'),
        ('2', 'Sergey', '1994-05-04 00:00:00', '600'),
        ('3', 'Mark', '1997-12-17 00:00:00', '600'),
@@ -35,7 +19,6 @@ VALUES ('1', 'Egor', '2001-09-29 00:00:00', '700'),
        ('6', 'Irina', '1990-04-21 00:00:00', '900');
 
 INSERT INTO positions_employees (posid, empid)
-    OVERRIDING SYSTEM VALUE
 VALUES ('1', '1'),
        ('2', '2'),
        ('3', '3'),

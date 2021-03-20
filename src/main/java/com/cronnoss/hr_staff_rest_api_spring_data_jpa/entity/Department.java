@@ -1,5 +1,7 @@
 package com.cronnoss.hr_staff_rest_api_spring_data_jpa.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,8 @@ import java.util.List;
 public class Department {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "department_depid_seq")
+    @SequenceGenerator(name = "department_depid_seq",  allocationSize = 10)
     @Column(name = "depid")
     private int depid;
 
@@ -20,6 +23,7 @@ public class Department {
 //            (fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
 //            , CascadeType.REFRESH, CascadeType.DETACH}
 //            , mappedBy = "department")
+    @JsonIgnore
     private List<Position> poss;
 
     public Department() {
