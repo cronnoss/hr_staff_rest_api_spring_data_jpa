@@ -12,15 +12,12 @@ public class Position {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "position_posid_seq")
-    @SequenceGenerator(name = "position_posid_seq",  allocationSize = 10)
+    @SequenceGenerator(name = "position_posid_seq", allocationSize = 10)
     @Column(name = "posid")
     private int posid;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//            (fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
-//            , CascadeType.REFRESH, CascadeType.DETACH})
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "depid")
-//    @JsonIgnore
     private Department department;
 
     @Column(name = "position_name")

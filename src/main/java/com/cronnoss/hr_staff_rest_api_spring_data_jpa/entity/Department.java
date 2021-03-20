@@ -12,17 +12,16 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "department_depid_seq")
-    @SequenceGenerator(name = "department_depid_seq",  allocationSize = 10)
+    @SequenceGenerator(name = "department_depid_seq", allocationSize = 10)
     @Column(name = "depid")
     private int depid;
 
     @Column(name = "department_name")
     private String departmentName;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "department")
-//            (fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
-//            , CascadeType.REFRESH, CascadeType.DETACH}
-//            , mappedBy = "department")
+    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
+            , CascadeType.REFRESH, CascadeType.DETACH}
+            , mappedBy = "department")
     @JsonIgnore
     private List<Position> poss;
 
