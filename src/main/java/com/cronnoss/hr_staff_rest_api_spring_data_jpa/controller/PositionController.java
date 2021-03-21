@@ -32,6 +32,12 @@ public class PositionController {
         return position;
     }
 
+    @PutMapping("/positions")
+    public Position updatePosition(@RequestBody Position position) {
+        positionService.savePosition(position);
+        return position;
+    }
+
     @GetMapping("/positions/positionName/{positionName}")
     public List<Position> showAllPositionsByPositionName(@PathVariable String positionName) {
         List<Position> positions = positionService.findPositionsByPositionName(positionName);

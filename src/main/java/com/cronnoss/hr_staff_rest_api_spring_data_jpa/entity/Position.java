@@ -16,15 +16,16 @@ public class Position {
     @Column(name = "posid")
     private int posid;
 
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(cascade = {CascadeType.PERSIST, CascadeType.DETACH
+            , CascadeType.REFRESH, CascadeType.MERGE})
     @JoinColumn(name = "depid")
     private Department department;
 
     @Column(name = "position_name")
     private String positionName;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
-            , CascadeType.REFRESH, CascadeType.DETACH})
+    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.DETACH
+            , CascadeType.REFRESH, CascadeType.MERGE})
     @JoinTable(
             name = "positions_employees"
             , joinColumns = @JoinColumn(name = "posid")

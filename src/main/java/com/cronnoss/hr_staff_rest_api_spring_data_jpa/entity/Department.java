@@ -19,8 +19,8 @@ public class Department {
     @Column(name = "department_name")
     private String departmentName;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
-            , CascadeType.REFRESH, CascadeType.DETACH}
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.DETACH
+            , CascadeType.REFRESH, CascadeType.MERGE}
             , mappedBy = "department")
     @JsonIgnore
     private List<Position> poss;
