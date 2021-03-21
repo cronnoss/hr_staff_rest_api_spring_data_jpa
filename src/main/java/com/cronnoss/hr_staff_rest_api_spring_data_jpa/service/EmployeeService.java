@@ -13,5 +13,5 @@ public interface EmployeeService {
 
     public void deleteEmployee(int empid);
 
-//    public List<Employee> findEmployeesByEmployeeFullName(String employeeFullName);
+    public List<Employee> findEmployeesByFullName(String fullName);
 }

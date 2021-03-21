@@ -39,9 +39,9 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeRepository.deleteById(empid);
     }
 
-//    @Override
-//    public List<Employee> findEmployeesByEmployeeFullName(String employeeFullName) {
-//        List<Employee> employees = employeeRepository.findEmployeesByEmployeeFullName(employeeFullName);
-//        return employees;
-//    }
+    @Override
+    public List<Employee> findEmployeesByFullName(String fullName) {
+        List<Employee> employees = employeeRepository.findEmployeesByFullName(fullName);
+        return employees;
+    }
 }

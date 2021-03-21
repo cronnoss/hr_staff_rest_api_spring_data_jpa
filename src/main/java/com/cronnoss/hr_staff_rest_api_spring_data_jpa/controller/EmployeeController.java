@@ -44,9 +44,9 @@ public class EmployeeController {
         return "Position with ID = " + empid + " was deleted";
     }
 
-//    @GetMapping("/employees/employeeName/{employeeFullName}")
-//    public List<Employee> showAllEmployeesByEmployeeFullName(@PathVariable String employeeFullName) {
-//        List<Employee> employees = employeeService.findEmployeesByEmployeeFullName(employeeFullName);
-//        return employees;
-//    }
+    @GetMapping("/employees/employeeName/{employeeFullName}")
+    public List<Employee> showAllEmployeesByEmployeeFullName(@PathVariable String employeeFullName) {
+        List<Employee> employees = employeeService.findEmployeesByFullName(employeeFullName);
+        return employees;
+    }
 }
