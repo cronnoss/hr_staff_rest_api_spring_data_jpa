@@ -1,7 +1,5 @@
 package com.cronnoss.hr_staff_rest_api_spring_data_jpa.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.ArrayList;
@@ -26,14 +24,11 @@ public class Employee {
     @Column(name = "salary")
     private int salary;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-//            (fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE
-//            , CascadeType.REFRESH, CascadeType.DETACH})
+    @ManyToMany(/*fetch = FetchType.LAZY, cascade = CascadeType.ALL*/)
     @JoinTable(
             name = "positions_employees"
             , joinColumns = @JoinColumn(name = "empid")
             , inverseJoinColumns = @JoinColumn(name = "posid"))
-//    @JsonIgnore
     private List<Position> positions;
 
     public Employee() {
@@ -67,14 +62,14 @@ public class Employee {
     public void setFullName(String fullName) {
         this.fullName = fullName;
     }
-//
-//    public Timestamp getDateOfBirth() {
-//        return dateOfBirth;
-//    }
-//
-//    public void setDateOfBirth(Timestamp dateOfBirth) {
-//        this.dateOfBirth = dateOfBirth;
-//    }
+
+    public Timestamp getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(Timestamp dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 
     public int getSalary() {
         return salary;
