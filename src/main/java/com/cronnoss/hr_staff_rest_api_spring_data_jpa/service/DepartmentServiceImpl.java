@@ -45,4 +45,10 @@ public class DepartmentServiceImpl implements DepartmentService {
                 .findDepartmentsByDepartmentNameContains(departmentName);
         return departments;
     }
+
+    @Override
+    public List<Department> findAllDepartmentsAndAverageSalary() {
+        List<Department> departments = departmentRepository.findAllDepartmentsAndAverageSalary();
+        return departments;
+    }
 }

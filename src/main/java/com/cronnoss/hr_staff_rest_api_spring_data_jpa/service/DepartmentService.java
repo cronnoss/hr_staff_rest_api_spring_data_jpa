@@ -14,4 +14,6 @@ public interface DepartmentService {
     public void deleteDepartment(int depid);
 
     public List<Department> findDepartmentsByDepartmentNameContains(String departmentName);
+
+    public List<Department> findAllDepartmentsAndAverageSalary();
 }

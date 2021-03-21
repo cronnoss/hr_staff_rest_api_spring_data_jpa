@@ -50,7 +50,12 @@ public class DepartmentController {
     @GetMapping("/departments/departmentName/{departmentName}")
     public List<Department> showAllDepartmentsContainsDepartmentName(@PathVariable String departmentName) {
         List<Department> departments = departmentService.findDepartmentsByDepartmentNameContains(departmentName);
+        return departments;
+    }
 
+    @GetMapping("/departments/averagesalary")
+    public List<Department> showAllDepartmentsAndAverageSalary() {
+        List<Department> departments = departmentService.findAllDepartmentsAndAverageSalary();
         return departments;
     }
 }
