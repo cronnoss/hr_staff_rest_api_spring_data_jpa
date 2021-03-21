@@ -13,7 +13,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "employee_empid_seq")
-    @SequenceGenerator(name = "employee_empid_seq",  allocationSize = 10)
+    @SequenceGenerator(initialValue = 7, name = "employee_empid_seq", allocationSize = 10)
     @Column(name = "empid")
     private int empid;
 

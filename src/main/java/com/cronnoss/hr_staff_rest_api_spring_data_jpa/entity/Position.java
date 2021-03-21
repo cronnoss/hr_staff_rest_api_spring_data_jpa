@@ -12,7 +12,7 @@ public class Position {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "position_posid_seq")
-    @SequenceGenerator(name = "position_posid_seq", allocationSize = 10)
+    @SequenceGenerator(initialValue = 6, name = "position_posid_seq", allocationSize = 10)
     @Column(name = "posid")
     private int posid;
 

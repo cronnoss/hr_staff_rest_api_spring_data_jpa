@@ -12,7 +12,7 @@ public class Department {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "department_depid_seq")
-    @SequenceGenerator(name = "department_depid_seq", allocationSize = 10)
+    @SequenceGenerator(initialValue = 4, name = "department_depid_seq", allocationSize = 10)
     @Column(name = "depid")
     private int depid;
 
