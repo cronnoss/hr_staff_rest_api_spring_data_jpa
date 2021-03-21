@@ -32,6 +32,18 @@ public class EmployeeController {
         return employee;
     }
 
+    @PutMapping("/employees")
+    public Employee updateEmployee(@RequestBody Employee employee) {
+        employeeService.saveEmployee(employee);
+        return employee;
+    }
+
+    @DeleteMapping("/employees/{empid}")
+    public String deleteEmployee(@PathVariable int empid) {
+        employeeService.deleteEmployee(empid);
+        return "Position with ID = " + empid + " was deleted";
+    }
+
 //    @GetMapping("/employees/employeeName/{employeeFullName}")
 //    public List<Employee> showAllEmployeesByEmployeeFullName(@PathVariable String employeeFullName) {
 //        List<Employee> employees = employeeService.findEmployeesByEmployeeFullName(employeeFullName);
