@@ -43,8 +43,6 @@ public class DepartmentController {
 
     @DeleteMapping("/departments/{depid}")
     public String deleteDepartment(@PathVariable int depid) {
-        Department department = departmentService.getDepartment(depid);
-
         departmentService.deleteDepartment(depid);
         return "Department with ID = " + depid + " was deleted";
     }

@@ -38,6 +38,12 @@ public class PositionController {
         return position;
     }
 
+    @DeleteMapping("/positions/{posid}")
+    public String deletePosition(@PathVariable int posid) {
+        positionService.deletePosition(posid);
+        return "Position with ID = " + posid + " was deleted";
+    }
+
     @GetMapping("/positions/positionName/{positionName}")
     public List<Position> showAllPositionsByPositionName(@PathVariable String positionName) {
         List<Position> positions = positionService.findPositionsByPositionName(positionName);
