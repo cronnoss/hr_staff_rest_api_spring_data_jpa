@@ -24,7 +24,7 @@ public class Position {
     @Column(name = "position_name")
     private String positionName;
 
-    @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.DETACH
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.DETACH
             , CascadeType.REFRESH, CascadeType.MERGE})
     @JoinTable(
             name = "positions_employees"
