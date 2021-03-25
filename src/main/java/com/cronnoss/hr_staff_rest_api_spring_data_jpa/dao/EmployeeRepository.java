@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
     public List<Employee> findEmployeesByFullName(String FullName);
+//
+//    public List<Employee> findAllBySalaryAndSalaryAndPositions();
 }

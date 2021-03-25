@@ -49,4 +49,10 @@ public class EmployeeController {
         List<Employee> employees = employeeService.findEmployeesByFullName(employeeFullName);
         return employees;
     }
+//
+//    @GetMapping("/employees/averagesalary")
+//    public List<Employee> showAllBySalaryAndSalaryAndPositions() {
+//        List<Employee> employees = employeeService.findAllBySalaryAndSalaryAndPositions();
+//        return employees;
+//    }
 }
