@@ -2,6 +2,7 @@ package com.cronnoss.hr_staff_rest_api_spring_data_jpa.service;
 
 import com.cronnoss.hr_staff_rest_api_spring_data_jpa.entity.Employee;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 public interface EmployeeService {
@@ -14,6 +15,6 @@ public interface EmployeeService {
     public void deleteEmployee(int empid);
 
     public List<Employee> findEmployeesByFullName(String fullName);
-//
-//    public List<Employee> findAllBySalaryAndSalaryAndPositions();
+
+    public List<Employee> findEmployeesByDateOfBirthContains(Timestamp dateOfBirth);
 }

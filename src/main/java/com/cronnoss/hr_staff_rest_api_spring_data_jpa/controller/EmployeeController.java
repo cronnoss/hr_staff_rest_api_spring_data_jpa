@@ -2,9 +2,14 @@ package com.cronnoss.hr_staff_rest_api_spring_data_jpa.controller;
 
 import com.cronnoss.hr_staff_rest_api_spring_data_jpa.entity.Employee;
 import com.cronnoss.hr_staff_rest_api_spring_data_jpa.service.EmployeeService;
+import com.cronnoss.hr_staff_rest_api_spring_data_jpa.service.ReportRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -49,10 +54,31 @@ public class EmployeeController {
         List<Employee> employees = employeeService.findEmployeesByFullName(employeeFullName);
         return employees;
     }
-//
-//    @GetMapping("/employees/averagesalary")
-//    public List<Employee> showAllBySalaryAndSalaryAndPositions() {
-//        List<Employee> employees = employeeService.findAllBySalaryAndSalaryAndPositions();
+
+//    @GetMapping("/employees" )
+//    public List<Employee> getReport(@RequestParam("dateOfBirth") ReportRequest dateOfBirth) {
+//        List<Employee> employees = employeeService.findEmployeesByDateOfBirthContains(dateOfBirth.getFrom());
+//        return employees;
+//    }
+
+//    @PostMapping("/employees")
+//    public List<Employee> showAllEmployeesContainsDateOfBirth(@RequestParam(value="dateOfBirth", required = false) String dateOfBirth) {
+//        //Create a DateTimeFormatter with your required format:
+//        DateTimeFormat
+//        DateTimeFormatter dateTimeFormat = new DateTimeFormatter(DateTimeFormatter.ISO_DATE_TIME);
+//    }
+
+//    @GetMapping(value = "dateOfBirth")
+//    public List<Employee> showAllEmployeesContainsDateOfBirth(@RequestParam("dateOfBirth")
+//                                                              @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) Timestamp employeeDateOfBirth) {
+//        List<Employee> employees = employeeService.findEmployeesByDateOfBirthContains(employeeDateOfBirth);
+//        return employees;
+//    }
+
+//    @GetMapping("/employees/employeeDateOfBirth/{employeeDateOfBirth}")
+//    public List<Employee> showAllEmployeesContainsDateOfBirth(@PathVariable
+//                                                              @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Timestamp employeeDateOfBirth) {
+//        List<Employee> employees = employeeService.findEmployeesByDateOfBirthContains(employeeDateOfBirth);
 //        return employees;
 //    }
 }

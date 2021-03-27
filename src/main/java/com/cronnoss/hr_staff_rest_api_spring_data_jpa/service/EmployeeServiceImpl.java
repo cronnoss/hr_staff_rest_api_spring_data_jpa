@@ -5,6 +5,7 @@ import com.cronnoss.hr_staff_rest_api_spring_data_jpa.entity.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.sql.Timestamp;
 import java.util.List;
 import java.util.Optional;
 
@@ -44,10 +45,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> employees = employeeRepository.findEmployeesByFullName(fullName);
         return employees;
     }
-//
-//    @Override
-//    public List<Employee> findAllBySalaryAndSalaryAndPositions() {
-//        List<Employee> employees = employeeRepository.findAllBySalaryAndSalaryAndPositions();
-//        return employees;
-//    }
+
+    @Override
+    public List<Employee> findEmployeesByDateOfBirthContains(Timestamp dateOfBirth) {
+        List<Employee> employees = employeeRepository.findEmployeesByDateOfBirthContains(dateOfBirth);
+        return employees;
+    }
 }
