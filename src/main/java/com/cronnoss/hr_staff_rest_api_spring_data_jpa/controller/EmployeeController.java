@@ -1,5 +1,6 @@
 package com.cronnoss.hr_staff_rest_api_spring_data_jpa.controller;
 
+import com.cronnoss.hr_staff_rest_api_spring_data_jpa.dao.EmployeeRepositoryImpl;
 import com.cronnoss.hr_staff_rest_api_spring_data_jpa.entity.Employee;
 import com.cronnoss.hr_staff_rest_api_spring_data_jpa.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeService employeeService;
+
+    @Autowired
+    private EmployeeRepositoryImpl employeeRepositoryImpl;
 
     @GetMapping("/employees")
     public List<Employee> showAllEmployees() {
@@ -49,10 +53,10 @@ public class EmployeeController {
         List<Employee> employees = employeeService.findEmployeesByFullName(employeeFullName);
         return employees;
     }
-//
-//    @GetMapping("/employees/averagesalary")
-//    public List<Employee> showAllBySalaryAndSalaryAndPositions() {
-//        List<Employee> employees = employeeService.findAllBySalaryAndSalaryAndPositions();
-//        return employees;
-//    }
+
+    @GetMapping("/employees/averagesalary")
+    public List<Employee> showAllBySalaryAndSalaryAndPositions() {
+        List<Employee> employees = employeeRepositoryImpl.findDepartmentsAndAverageSalary();
+        return employees;
+    }
 }

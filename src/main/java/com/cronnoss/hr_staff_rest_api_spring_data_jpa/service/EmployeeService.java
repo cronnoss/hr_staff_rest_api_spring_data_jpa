@@ -14,6 +14,6 @@ public interface EmployeeService {
     public void deleteEmployee(int empid);
 
     public List<Employee> findEmployeesByFullName(String fullName);
-//
-//    public List<Employee> findAllBySalaryAndSalaryAndPositions();
+
+    public List<Employee> findDepartmentsAndAverageSalary();
 }

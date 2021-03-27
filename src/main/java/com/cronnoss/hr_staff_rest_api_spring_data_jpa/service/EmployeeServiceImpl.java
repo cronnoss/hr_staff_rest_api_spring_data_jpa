@@ -44,10 +44,10 @@ public class EmployeeServiceImpl implements EmployeeService {
         List<Employee> employees = employeeRepository.findEmployeesByFullName(fullName);
         return employees;
     }
-//
-//    @Override
-//    public List<Employee> findAllBySalaryAndSalaryAndPositions() {
-//        List<Employee> employees = employeeRepository.findAllBySalaryAndSalaryAndPositions();
-//        return employees;
-//    }
+
+    @Override
+    public List<Employee> findDepartmentsAndAverageSalary() {
+        List<Employee> employees = employeeRepository.findDepartmentsAndAverageSalary();
+        return employees;
+    }
 }
